@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DreamBoard</string>
+    <string name="viewBtText">View List of Dreams</string>
+    <string name="titleApp">Dreams to Fulfill</string>
+    <string name="placeholder">Introduce your dreams...</string>
+    <string name="textAddBt">Add</string>
+</resources>

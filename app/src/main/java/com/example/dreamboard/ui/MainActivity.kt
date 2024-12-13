@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dreamboard.dao.DreamDAO
 import com.example.dreamboard.databinding.ActivityMainBinding
 import com.example.dreamboard.model.Dream
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 textDream = binding.inputDream.text.toString()
                 if (textDream.isNotEmpty()) {
                     dreamDAO.insertDream( Dream(textDream) )
+                } else {
+                    Snackbar.make(v, "You must introduce your dream.", Snackbar.LENGTH_SHORT).show()
                 }
                 binding.inputDream.setText("")
             }

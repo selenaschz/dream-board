@@ -1,13 +1,12 @@
 package com.example.dreamboard.ui
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dreamboard.adapter.DreamAdapter
-import com.example.dreamboard.dao.DreamDAO
 import com.example.dreamboard.databinding.ActivityDreamsBinding
 import com.example.dreamboard.databinding.ItemDreamBinding
 import com.example.dreamboard.model.Dream
@@ -26,10 +25,21 @@ class DreamsActivity : AppCompatActivity(), OnClickListener {
         setContentView(binding.root)
 
         instances()
+        setClickListeners()
 
     }
 
+    fun setClickListeners() {
+        binding.backBt.setOnClickListener( this )
+    }
+
     override fun onClick(v: View?) {
+        when (v?.id) {
+            binding.backBt.id -> {
+                val intent = Intent( this, MainActivity::class.java )
+                startActivity( intent )
+            }
+        }
     }
 
     private fun instances() {

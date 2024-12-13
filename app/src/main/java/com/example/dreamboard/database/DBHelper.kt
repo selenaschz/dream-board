@@ -17,7 +17,6 @@ class DBHelper(
                 "name TEXT NOT NULL)"
 
         db?.execSQL(query)
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

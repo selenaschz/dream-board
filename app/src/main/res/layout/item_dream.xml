@@ -4,12 +4,13 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="25dp"
     app:cardElevation="10dp"
     app:cardCornerRadius="20dp"
     android:background="@android:color/transparent">
     <LinearLayout
         android:padding="10dp"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -24,9 +25,10 @@
             android:src="@drawable/goal" />
 
         <TextView
+            android:layout_gravity="start|center"
             android:id="@+id/dreamText"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center" />
     </LinearLayout>

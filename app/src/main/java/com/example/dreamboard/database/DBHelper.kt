@@ -12,7 +12,7 @@ class DBHelper(
 ) : SQLiteOpenHelper(context, name, factory, version) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE dreams" +
+        val query = "CREATE TABLE IF NOT EXISTS dreams" +
                 "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT NOT NULL)"
 

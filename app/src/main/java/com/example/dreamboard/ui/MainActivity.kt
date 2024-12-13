@@ -11,10 +11,13 @@ import com.example.dreamboard.model.Dream
 
 class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var textDream: String
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        textDream = savedInstanceState?.getString("inputText") ?: ""
 
         setListeners()
     }
@@ -30,8 +33,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         when (v?.id) {
             binding.addBt.id -> {
                 val dreamDAO = DreamDAO( applicationContext )
-                val textDream = binding.inputDream.text.toString()
-                if (textDream.isNotEmpty()) dreamDAO.insertDream( Dream( textDream ) )
+                textDream = binding.inputDream.text.toString()
+                if (textDream.isNotEmpty()) {
+                    dreamDAO.insertDream( Dream(textDream) )
+                }
                 binding.inputDream.setText("")
             }
             binding.viewListBt.id -> {
@@ -40,7 +45,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 val intent = Intent( this, DreamsActivity::class.java )
                 val bundle = Bundle()
                 bundle.putSerializable( "listDreams", listDreams )
-                intent.putExtra( "dreams", bundle )
+                intent.putExtra( "dream", bundle )
                 startActivity( intent )
             }
         }
@@ -48,5 +53,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        outState.putString("inputText", textDream)
     }
+
 }

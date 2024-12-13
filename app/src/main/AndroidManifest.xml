@@ -17,6 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
+            android:configChanges="orientation|locale"
             android:exported="true"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
